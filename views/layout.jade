@@ -16,14 +16,11 @@ html
 
 		link(rel='stylesheet', href='/css/style.css')
 		style.
-			body {
-				opacity: 0;
-				transition: opacity 0.5s ease
-			}
-			.wf-active body {
+			body{opacity:0;animation:fade 1s ease 0s 1 normal forwards}
+			/*.wf-active body {
 				opacity: 1;
 				transition: opacity 0.5s ease
-			}
+			}*/
 			.absolute-center {
 				width: 3rem;
 				height: 3rem;
@@ -41,6 +38,12 @@ html
 			}@-o-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 			}@-ms-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 			}@keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+			}
+			}@-moz-keyframes fade{100%{opacity:1}
+			}@-webkit-keyframes fade{100%{opacity:1}
+			}@-o-keyframes fade{100%{opacity:1}
+			}@-ms-keyframes fade{100%{opacity:1}
+			}@keyframes fade{100%{opacity:1}
 			}
 
 
