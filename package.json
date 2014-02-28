@@ -10,12 +10,12 @@
     "jade": "*",
     "stylus": "*",
     "coffee-script": "*",
-    "gulp": "3.5.2"
+    "gulp": "3.5.2",
+    "axis-css": "~0.2.x",
+    "jeet": "*"
   },
   "devDependencies": {
     "gulp-load-plugins": "0.3.0",  
-    "axis-css": "~0.2.x",
-    "jeet": "*",
     "gulp-notify": "*",
     "gulp-livereload": "*",
     "gulp-uglify": "*",
