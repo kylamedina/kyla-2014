@@ -9,13 +9,13 @@
     "express": "3.4.3",
     "jade": "*",
     "stylus": "*",
-    "coffee-script": "*"
+    "coffee-script": "*",
+    "gulp": "*",
+    "gulp-load-plugins": "*"
   },
   "devDependencies": {
     "axis-css": "~0.2.x",
     "jeet": "*",
-    "gulp": "*",
-    "gulp-load-plugins": "*",
     "gulp-notify": "*",
     "gulp-livereload": "*",
     "gulp-uglify": "*",
@@ -26,7 +26,6 @@
     "gulp-imagemin": "~0.1.5",
     "gulp-concat": "~2.1.7",
     "connect-livereload": "~0.3.2",
-    "gulp-rename": "~1.1.0",
-    "jquery": "~2.1.0"
+    "gulp-rename": "~1.1.0"
   }
 }
