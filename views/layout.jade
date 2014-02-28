@@ -1,0 +1,132 @@
+doctype html
+html
+	head
+		// script(src="//cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js")
+		script(src="js/head.min.js")
+
+		title Kyla Medina
+		meta(charset="utf-8")
+		meta(http-equiv="content-type", content="text/html; charset=utf-8")
+		//- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/i/378
+		meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+		//- Mobile viewport optimized: h5bp.com/viewport (Could be better)
+		meta(name="viewport", content="width=device-width")
+		meta(name="apple-mobile-web-app-capable",content="yes")
+		meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
+
+		link(rel='stylesheet', href='/css/style.css')
+		style.
+			body {
+				opacity: 0;
+				transition: opacity 0.5s ease
+			}
+			.wf-active body {
+				opacity: 1;
+				transition: opacity 0.5s ease
+			}
+			.absolute-center {
+				width: 3rem;
+				height: 3rem;
+				overflow: auto;
+				margin: auto;
+				position: fixed;
+				top: 0; left: 0; bottom: 0; right: 0;
+				z-index: -9999;
+			}
+			.loading-img {
+				animation: rotate 2s linear 0s infinite;
+			}
+			@-moz-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+			}@-webkit-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+			}@-o-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+			}@-ms-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+			}@keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+			}
+
+
+
+		link(rel='apple-touch-icon-precomposed', sizes='144x144', href='fav/apple-touch-icon-144x144-precomposed.png')
+		link(rel='apple-touch-icon-precomposed', sizes='114x114', href='fav/apple-touch-icon-114x114-precomposed.png')
+		link(rel='apple-touch-icon-precomposed', sizes='72x72', href='fav/apple-touch-icon-72x72-precomposed.png')
+		link(rel="icon", sizes="16x16 32x32 48x48" href='fav/favIcon_48x48.ico')
+		
+
+		script.
+			var html = document.getElementsByTagName('html')[0];
+			html.className += '	wf-loading';
+			setTimeout(function() {
+				html.className = html.className.replace(' wf-loading', '');
+			}, 5000);
+			WebFontConfig = { fontdeck: { id: '41627' } };
+			(function() {
+				var wf = document.createElement('script');
+				wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+				wf.type = 'text/javascript';
+				wf.async = 'true';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(wf, s);
+			})();
+
+
+	body#top.markers-hidden.ajax-home
+		.loading.center-container
+			svg.loading-img.absolute-center(version='1.2', baseprofile='tiny', xmlns='http://www.w3.org/2000/svg', viewbox='0 0 100 100')
+				path(fill='#555', d='M15.51.577l84.074 84.074-15.556 15.556-84.074-84.074zM99.609 16.162l-84.074 84.074-15.556-15.556 84.074-84.074z')
+		include includes/panel
+		
+		.border.left
+		.border.right
+
+		header.header-main
+			h1.fixed-left.fixed-top(data-page='home') 
+				span K
+				span.hide y
+				span.hide l
+				span.hide a
+				span.hide &nbsp;
+				span.show &nbsp;
+				span.show /
+				span.show &nbsp;
+				span M
+				span.hide e
+				span.hide d
+				span.hide i
+				span.hide n
+				span.hide a
+
+			.mobile-menu.activate-panel
+				svg(xmlns='http://www.w3.org/2000/svg', viewbox='50 118.5 412 275', enable-background='new 50 118.5 412 275')
+					path(d='M462 183.5h-412v-65h412v65zm0 40h-412v65h412v-65zm0 105h-412v65h412v-65z')
+
+		nav.nav-main.fixed-center
+			button.fixed-left.activate-panel profile
+			button.fixed-right(data-page='projects',data-order="0") projects
+
+
+		main.view-main.is-loading
+			block content
+	
+		footer.footer-main
+	
+		.back-top-container.fixed-left.fixed-bottom
+			a(href="#top").back-top
+				| Back to Top	
+
+		.social.fixed-right.fixed-bottom.show-large
+			a(href="http://github.com/kylamedina",target="_blank")
+				svg(xmlns='http://www.w3.org/2000/svg', viewbox='-4 -11 100 100', enable-background='new -4 -11 100 100')
+						path(id="icon-github", d='M61.9 45.5c-3.6 0-6.5 4-6.5 9s2.9 9 6.5 9 6.5-4 6.5-9c0-4.9-2.9-9-6.5-9zm22.6-23.4c.7-1.8.8-12.2-3.2-22.1 0 0-9.1 1-22.8 10.4-2.8-.8-7.6-1.2-12.5-1.2s-9.7.4-12.6 1.2c-13.7-9.4-22.8-10.4-22.8-10.4-3.9 9.9-3.9 20.3-3.1 22.1-4.7 5.1-7.5 11.1-7.5 19.4 0 35.9 29.8 36.5 37.3 36.5h17.4c7.5 0 37.3-.6 37.3-36.5 0-8.3-2.8-14.3-7.5-19.4zm-38.4 51.5h-.3c-18.8 0-33.5-2.3-33.5-20.6 0-4.4 1.5-8.5 5.2-11.8 6.1-5.6 16.5-2.7 28.3-2.7h.2c11.8 0 22.2-3 28.3 2.7 3.7 3.4 5.2 7.5 5.2 11.8.2 18.3-14.5 20.6-33.4 20.6zm-16-28.1c-3.6 0-6.5 4-6.5 9s2.9 9 6.5 9 6.5-4 6.5-9c0-4.9-2.9-9-6.5-9z')
+
+			a(href="http://twitter.com/kylamedina",target="_blank")
+				svg(xmlns='http://www.w3.org/2000/svg', viewbox='206 206 100 100', enable-background='new 206 206 100 100')
+						path(id="icon-twitter", d='M305.5 225.3c-3.6 1.6-7.6 2.7-11.7 3.2 4.2-2.5 7.4-6.5 8.9-11.2-3.9 2.3-8.3 4-12.9 4.9-3.7-4-9-6.4-14.8-6.4-11.2 0-20.3 9.1-20.3 20.3 0 1.6.2 3.1.5 4.6-16.9-.8-31.9-8.9-41.9-21.2-1.8 3-2.8 6.5-2.8 10.2 0 7.1 3.6 13.3 9 16.9-3.3-.1-6.5-1-9.2-2.5v.3c0 9.9 7 18.1 16.3 19.9-1.7.5-3.5.7-5.4.7-1.3 0-2.6-.1-3.8-.4 2.6 8.1 10.1 14 19 14.1-7 5.5-15.7 8.7-25.2 8.7-1.6 0-3.3-.1-4.8-.3 9 5.8 19.7 9.1 31.2 9.1 37.4 0 57.8-31 57.8-57.8 0-.9 0-1.8-.1-2.6 4.1-2.9 7.5-6.5 10.2-10.5z')
+
+			a(href="http://imadethisforyou.net/",target="_blank")
+				svg(xmlns='http://www.w3.org/2000/svg', viewbox='206 206 100 100', enable-background='new 206 206 100 100')
+					path(id="icon-vsco", d='M245.6 206.2c-.6 5.1-1.8 9.4-3.5 12.7-1.7 3.3-3.9 6.2-6.7 8.5-2.8 2.4-6.1 4.2-10 5.5v14.2h10.9v34.9c0 4.6.5 8 1.4 10.4 1 2.4 2.7 4.7 5.1 6.8 2.5 2.1 5.5 3.8 9 4.9 3.5 1.1 7.5 1.7 12.1 1.7 4 0 7.7-.4 11.2-1.2 3.4-.8 7.3-2.2 11.6-4.2v-15.7c-5 3.3-10 4.9-15.1 4.9-2.8 0-5.4-.7-7.6-2-1.7-1-2.8-2.3-3.4-3.9-.6-1.6-.9-5.4-.9-11.1v-25.6h23.7v-15.6h-23.7v-25.3h-14.1z')
+
+
+		.border.top
+		.border.bottom
+
+		include includes/scripts

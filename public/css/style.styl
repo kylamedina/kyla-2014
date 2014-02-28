@@ -1,0 +1,794 @@
+@import 'axis'
+normalize()
+
+*, *:before, *:after, *::before, *::after
+	*behavior: url(js/vendor/boxsizing.htc)
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+html
+	overflow-y: scroll
+	overflow-x: hidden
+	font-size 62.5%
+	-webkit-font-smoothing antialiased
+	text-rendering optimizeLegibility
+	font-smoothing antialiased
+	font-smooth always
+
+img,video,audio,embed,object,input,iframe,svg
+	width 100%
+	max-width 100%
+
+*:focus
+	outline 0
+
+
+// VARIABLES ///////////////////////////////////////////////
+
+pink = rgba(#FE9088)
+// black = #212121
+black = #555
+litegray = rgb(245,245,245)
+
+
+// FONTS ///////////////////////////////////////////////////
+
+trimmonolight()
+	font-family:"Trim Mono Light", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	font-weight:200; 
+	font-style:normal;
+soleilxbold()
+	font-family:"Soleil Extra Bold", Futura, 'Century Gothic', Verdana, sans-serif;
+	font-weight:800
+	font-style:normal
+
+
+// GENERAL /////////////////////////////////////////////////
+
+body, html
+	trimmonolight()
+	color black
+
+.border
+	background-color black
+	position fixed
+	-webkit-transition -webkit-transform 0.5s ease
+	transition transform 0.5s ease
+	@media screen and (max-width: 640px)
+		display none
+	&.top, &.bottom
+		height 2rem
+		width 100%
+	&.left, &.right
+		width 2rem
+		height 100%
+	&.top
+		top 0
+	&.bottom
+		bottom 0
+	&.left
+		left 0
+	&.right
+		right 0
+
+
+// TYPOGRAPHY ///////////////////////////////////
+
+h1
+	soleilxbold()
+	fs(2.5rem)
+	cursor pointer
+	text-transform uppercase
+	width 100%
+	@media screen and (max-width: 1024px)
+		.show
+			display none
+	@media screen and (min-width: 1024px)
+		span
+			display inline-block
+			-webkit-transition width 0.2s linear, opacity 0.1s linear
+			transition width 0.2s linear, opacity 0.1s linear
+		&.at-top
+			.show
+				opacity 0
+				width 0px !important
+				-webkit-transition width 0.2s linear, opacity 0.1s linear
+				transition width 0.2s linear, opacity 0.1s linear
+		&.scrolling
+			.show
+				opacity 1
+				display inline-block
+
+			.hide
+				opacity 0
+				width 0px !important
+				-webkit-transition width 0.2s linear, opacity 0.1s linear
+				transition width 0.2s linear, opacity 0.1s linear
+
+p
+	fs(1.3rem)
+	trimmonolight()
+	line-height 1.6
+
+::selection
+	background pink
+	color white
+::-moz-selection
+	background pink
+	color white
+
+.panel 
+	::selection
+		background white
+		color pink
+	::-moz-selection
+		background white
+		color pink
+
+
+// LAYOUT ///////////////////////////////////////
+
+[class*='fixed']
+	position fixed 
+	-webkit-transform none
+	transform none
+	-webkit-transition -webkit-transform 0.5s ease
+	transition transform 0.5s ease
+	z-index 999
+.fixed-center
+	top 50%
+.fixed-left
+	left 6rem
+.fixed-right
+	right 6rem
+.fixed-top
+	top 5rem
+.fixed-bottom
+	bottom 5rem
+
+.view-main
+	margin 0 3rem
+	-webkit-transform none
+	transform none
+	-webkit-transition all 0.5s ease
+	transition all 0.5s ease
+	background-color white
+	opacity 1
+	&.is-loading
+		opacity 0
+		-webkit-transform translateY(10rem)
+		transform translateY(10rem)
+		-webkit-transition all 0.5s linear 0
+		transition all 0.5s linear 0
+.ajax-projects
+	.view-main
+		padding-top 3rem
+.ajax-home
+	.view-main
+		padding-top 15rem
+
+.container
+	margin 0 auto
+	max-width 144rem
+	@media screen and (max-width: 1800px)
+		margin 0 6rem
+	@media all and (max-width: 768px)
+		margin 0
+
+// BUTTON ///////////////////////////////////////
+
+.button
+	display inline-block
+	background-color black
+	border 0.1rem solid white
+	color white
+	soleil()
+	padding 1.15rem 1.35rem
+	upcase()
+	font-weight bold
+	fs(1rem)
+	cursor pointer
+	&:hover
+		border 0.1rem solid white
+		background-color pink
+		color white
+
+// HEADER ///////////////////////////////////////
+
+.header-main
+	@media screen and (max-width: 640px)
+		z-index 9999
+		background-color white
+		height 5rem
+		width 100%
+		position fixed
+		top 0
+		border-bottom 0.3rem solid black
+	h1
+		@media screen and (max-width: 1800px)
+			margin-left: 3rem
+		@media screen and (max-width: 640px)
+			margin-left 0
+			top 1.1rem
+			left 2rem
+
+// NAV //////////////////////////////////////////
+
+button()
+	background none
+	background-color transparent
+	border none
+	color black
+	soleilxbold()
+	fs(1.85rem)
+	cursor pointer
+	text-decoration none
+	text-transform uppercase
+	z-index 9999
+	&:hover
+		color pink
+
+.nav-main
+	-webkit-transition -webkit-transform 0.5s ease
+	transition transform 0.5s ease
+	button
+		button()
+		&:nth-child(1)
+			-webkit-transform translateX(-4.45rem) rotate(90deg)
+			transform translateX(-4.45rem) rotate(90deg)
+		&:nth-child(2)
+			-webkit-transform translateX(4.45rem) rotate(-90deg)
+			transform translateX(4.45rem) rotate(-90deg)
+	@media screen and (max-width: 640px)
+		display none
+
+.back-top-container
+	opacity 0
+	-webkit-transition all 0.5s ease
+	transition all 0.5s ease
+	@media screen and (max-width: 1800px)
+		margin-left: 2.8rem
+	@media screen and (max-width: 640px)
+		left 0
+		width 100%
+		text-align center
+
+.back-top
+	button()
+
+.footer-is-showing
+	.back-top-container
+		bottom 3rem
+		-webkit-transition all 0.5s ease
+		transition all 0.5s ease
+	.back-top
+		color white
+		z-index 9999
+		&:hover
+			color pink
+
+.mobile-menu
+	display none
+	background-color black
+	svg
+		path
+			fill white
+	@media screen and (max-width: 640px)
+		display inline-block
+		height 5rem
+		width 5rem
+		padding 1rem
+		position absolute
+		right 0
+		z-index 9999
+
+// GRID /////////////////////////////////////////
+
+.container
+	margin-bottom 3rem
+	
+.grid-item
+	background-color litegray
+	float left
+	display inline-block
+	vertical-align top
+	// transition all 0.1s linear
+	&.w1
+		width 30%
+	&.w2
+		width 62.5%
+	@media all and (max-width: 1220px)
+		&.w1, &.w2
+			width 46%
+	@media all and (max-width: 850px)
+		&.w1, &.w2
+			width 45%
+	@media all and (max-width: 640px)
+		&.w1, &.w2
+			width 100%
+			position relative !important
+			left 0 !important
+			top 0 !important
+			margin 5% 0
+	&.h1
+		height 24rem
+	&.h2
+		height 48rem
+	@media all and (max-width: 850px)
+		&.h1, &.h2
+			height 30rem
+	@media all and (max-width: 480px)
+		&.h1, &.h2
+			height 20rem
+	&.is-hidden
+		opacity 0
+		transform: scale(0.001)
+		@media all and (max-width: 1220px)
+			display none
+	&:hover
+		box-shadow 15px 17px 0 black
+		> div
+			opacity 1
+	img
+		display block
+	> div
+		position absolute
+		top 5rem
+		left -3rem
+		color black
+		fs(1.5rem)
+		opacity 0
+		// trimmonolight()
+		soleilxbold()
+		text-transform uppercase
+		background-color white
+		padding 1rem 2rem
+		border 0.3rem solid black
+		cursor pointer
+		@media all and (max-width: 768px)
+			top 2rem
+			left 1rem
+		
+.grid
+	.project-ihny
+		background litegray url('../img/ihny.min.png') no-repeat
+		background-size auto 100%
+		background-position left bottom
+		@media screen and (max-width: 1330px)
+			background-position center bottom
+			background-size 100% auto
+	.project-rms
+		background litegray url('../img/rms.min.png') no-repeat
+		background-size auto 100%
+		background-position center
+	.project-artnet
+		background litegray url('../img/artnet.min.png') no-repeat
+		background-size cover
+		background-position center
+	.project-sa
+		background litegray url('../img/sa.min.png') no-repeat
+		background-size auto 100%
+		background-position center
+		@media screen and (max-width: 1330px)
+			background-size 100% auto
+	.project-clear
+		background litegray url('../img/clear.min.png') no-repeat
+		background-size cover
+		background-position center
+	.project-vse
+		background litegray url('../img/vse.min.png') no-repeat
+		background-size auto 100%
+		background-position center
+
+
+// PANEL //////////////////////////////////////////
+
+.panel
+	background-color pink
+	color white
+	position fixed
+	left 0
+	top 0
+	height 100%
+	width 100%
+	max-width 52rem
+	z-index 9998
+	overflow-y auto
+	-webkit-transition -webkit-transform 0.5s ease
+	transition transform 0.5s ease
+	-webkit-transform translateX(-52rem)
+	transform translateX(-52rem)
+	@media screen and (max-width: 640px)
+		width calc(100% - 3rem)
+	.social-set
+		a
+			inline-block()
+			width 3.5rem
+			height 3.5rem
+			margin 3.5rem 0.5rem 0
+			padding 0.75rem
+			background-color white
+			&:nth-child(1)
+				margin-left 0
+			svg 
+				path, circle
+					fill pink
+
+	a
+		color white
+		border-bottom 2px solid white
+		text-decoration none
+
+.panel-full-width
+	position relative
+
+.email-button
+	background-color transparent
+	margin 4rem 0
+	width 100%
+	display block
+	border 0.3rem solid white
+	text-align center
+	p
+		color white
+		soleilxbold()
+		display inline-block
+		vertical-align top
+		margin-left 1rem
+	svg 
+		width 2rem
+		height 2rem
+		display inline-block
+		path
+			fill white
+	&:hover
+		background-color white
+		border 0.3rem solid white
+		p
+			color pink
+		svg
+			path
+				fill pink
+
+.panel-close
+	width 2rem
+	height 2rem
+	position absolute
+	right 42rem
+	top 5.5rem
+	transition all 0.5s ease 0.05s
+	@media screen and (max-width: 640px)
+		display none
+
+.panel-content
+	margin 4rem 8rem
+	-webkit-transform translateX(-15rem)
+	transform translateX(-15rem)
+	&:nth-of-type(2)
+		margin-top 15rem
+@media screen and (max-width: 640px)
+	.panel-content
+		margin 2rem 2rem 2rem 3rem
+		-webkit-transform translateX(0rem)
+		transform translateX(0rem)
+		&:nth-of-type(2)
+			margin-top 10rem !important
+	
+
+.panel img
+	opacity 0
+	-webkit-transform translateX(-15rem)
+	transform translateX(-15rem)
+	-webkit-transition all 0.5s ease 0.2s
+	transition all 0.5s ease 0.2s
+	@media screen and (max-width: 640px)
+		-webkit-transform translateX(0rem)
+		transform translateX(0rem)
+		opacity 1
+	
+.panel-is-open
+	.view-main, .border.left, .border.right, .header-main h1
+		-webkit-transform translateX(50rem)
+		transform translateX(50rem)
+		-webkit-transition -webkit-transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		transition transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+	button.fixed-left, button.fixed-right
+		-webkit-transition -webkit-transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		transition transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+	button.fixed-left
+		-webkit-transform translateX(45.55rem) rotate(90deg)
+		transform translateX(45.55rem) rotate(90deg)
+	button.fixed-right
+		-webkit-transform translateX(45.55rem) rotate(-90deg)
+		transform translateX(45.55rem) rotate(-90deg)
+	.panel
+		-webkit-transform translateX(-2rem)
+		transform translateX(-2rem)
+		-webkit-transition -webkit-transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		transition transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+	.panel-close
+		right 7rem
+		-webkit-transform rotate(720deg)
+		transform rotate(720deg)
+		-webkit-transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		&:hover
+			-webkit-transform rotate(540deg) !important
+			transform rotate(540deg) !important
+			-webkit-transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+			transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+	.panel-content
+		-webkit-transform translateX(0rem)
+		transform translateX(0rem)
+		&:nth-of-type(2)
+			margin-top 15rem
+			-webkit-transition -webkit-transform 0.25s linear 0.05s
+			transition transform 0.25s linear 0.05s
+		&:nth-of-type(3)
+			-webkit-transition -webkit-transform 0.25s linear 0.05s
+			transition transform 0.25s linear 0.05s
+	.panel img
+		opacity 1
+		-webkit-transform translateX(0rem)
+		transform translateX(0rem)
+		-webkit-transition all 0.3s linear
+		transition all 0.3s linear
+
+@media screen and (max-width: 640px)
+	.panel-is-open
+		.header-main h1
+			-webkit-transform none
+			transform none
+
+// PROJECTS /////////////////////////////////////
+
+.projects, .project
+	position relative
+
+.project
+	display -webkit-flex
+	display flex
+	&:first-of-type
+		margin-top 0
+	&:last-of-type
+		margin-bottom 0
+
+	@media all and (max-width: 767px)
+		display block
+
+.project-desc
+	// col(3/8)
+	width 65rem
+	margin-right 5%
+	position relative
+	transition margin 0.2s ease 0s
+	clearfix()
+	@media all and (max-width: 1940px)
+		width 39.55rem
+	@media screen and (max-width: 1310px)
+		width 75%
+	@media all and (max-width: 850px)
+		width 100%
+	@media screen and (max-width: 850px)
+		padding-bottom 5rem 
+	.button
+		margin-top 2rem
+
+.project-imgs
+	// col(5/8)
+	max-width 90rem
+	transition margin 0.2s ease 0s
+	padding 5rem
+	background-color litegray
+	@media all and (max-width: 767px)
+		padding 1rem
+	img
+		opacity 0
+		transition opacity 0.5s ease
+
+.project-img
+	margin-top 5rem
+	margin-bottom 5rem
+
+	&:first-of-type
+		margin-top 0
+	&:last-of-type
+		margin-bottom 0
+
+// FIXIE FOR PROECTS ///////////////////////////
+
+.fixie
+	position relative
+	max-width 52rem
+	@media all and (max-width: 768px)
+		border-top 0.1rem solid black
+		padding-top 2rem
+		position static !important
+
+.project:first-of-type .fixie
+	@media all and (max-width: 768px)
+		border-top none
+
+.fixie-spacer
+	height 12rem
+	@media all and (max-width: 768px)
+		height 2.5rem
+
+
+// FOOTER ///////////////////////////////////////
+
+.footer-main
+	width 100%
+	position fixed
+	height 9rem
+	bottom 0
+	color white
+	z-index -100
+	background-color transparent
+.footer-is-showing
+	.footer-main
+		background-color black
+		-webkit-transition all 0.2s ease
+		transition all 0.2s ease
+
+// SOCIAL ///////////////////////////////////////
+
+.social
+	// width 100%
+	svg
+		path, circle
+			fill white
+	a
+		width 3rem
+		height 3rem
+		padding 0.85rem
+		margin 0 0.35rem
+		display inline-block
+		background-color black
+		&:hover
+			background pink
+
+.footer-is-showing
+	.social
+		z-index 9999
+		bottom 3rem
+		-webkit-transition all 0.5s ease
+		transition all 0.5s ease
+		a
+			background white
+			svg
+				path, circle
+					fill black
+			&:hover
+				background pink
+				svg
+					path, circle
+						fill white
+
+
+// PROJECT MARKERS ////////////////////////////
+.ajax-projects
+	&.markers-hidden
+		button[data-page='projects']
+			-webkit-transition margin 0.3s ease
+			transition margin 0.3s ease
+			margin-top 0rem
+
+.ajax-projects
+	&.markers-visible
+		button[data-page='projects']
+			-webkit-transition margin 0.3s ease
+			transition margin 0.3s ease
+			margin-top -6.5rem
+		.project-markers
+			opacity 1 !important
+			-webkit-transition opacity 0.3s ease
+			transition opacity 0.3s ease
+			visibility visible
+			display block
+.project-markers
+	top 50%
+	position fixed
+	right 5.75rem
+	width 1.35rem
+	z-index 9999
+	opacity 0
+	visibility hidden
+	display none
+	-webkit-transition opacity 0.3s ease
+	transition opacity 0.3s ease
+	.marker
+		background-color white
+		// width 1.35rem
+		height 1.35rem
+		display block
+		border-radius 50%
+		margin 0.6rem 0
+		border 0.3rem solid black
+		&.is-active
+			background-color black
+		&:hover
+			background-color pink
+			border 0.3rem solid pink
+.marker-link
+	h3
+		line-height 1
+		margin 0
+		padding 0
+		white-space: pre
+		text-align center
+			
+	measure = -3.25rem -5.1rem -6.9rem -8.6rem -10.6rem -12.25rem
+	for measure, i in measure
+		&:nth-child({i+1})
+			.project-bubble
+				left -5rem
+				top measure
+	&:hover
+	// , .marker.is-active +
+		.project-bubble
+			opacity 1
+			-webkit-transition opacity 0.3s ease 
+			transition opacity 0.3s ease 
+			-webkit-animation translateMarkers 0.2s ease 0s 1 normal forwards
+			animation translateMarkers 0.2s ease 0s 1 normal forwards
+
+.project-bubble
+	background-color white
+	color black
+	float right
+	text-transform uppercase
+	padding 1rem 1.5rem
+	position relative
+	opacity 0
+	transition opacity 0.1s ease
+	border 0.3rem solid black
+	&:after
+		content ''
+		background url('../svg/triangle.min.svg') no-repeat
+		background-size 1.5rem 1.2rem
+		height: 1.5rem
+		width: 1.2rem
+		position: absolute
+		right 0
+		-webkit-transform translate(1.3rem, -1.1rem)
+		transform translate(1.3rem, -1.1rem)
+
+// ANIMATIONS ///////////////////////////////////
+
+@keyframes translateMarkers
+	0%
+		left -5rem
+	100%
+		left -3rem
+
+@keyframes translateProjectsLinkUp
+	0%
+		margin-top 0rem
+	100%
+		margin-top -5rem
+
+@keyframes translateProjectsLinkDown
+	0%
+		margin-top -5rem
+	100%
+		margin-top 0rem
+
+@keyframes rotate 
+	100% 
+		-webkit-transform: rotate(360deg)
+		transform: rotate(360deg)
+
+
+// MEDIA QUERIES ////////////////////////////////
+
+.show-large
+	display block
+.show-small
+	display none
+@media screen and (max-width: 768px)
+	.show-large
+		display none
+	.show-small
+		display block

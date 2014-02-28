@@ -1,0 +1,32 @@
+{
+  "name": "KylaMedina",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.3",
+    "jade": "*",
+    "stylus": "*",
+    "coffee-script": "*"
+  },
+  "devDependencies": {
+    "axis-css": "~0.2.x",
+    "jeet": "*",
+    "gulp": "*",
+    "gulp-load-plugins": "*",
+    "gulp-notify": "*",
+    "gulp-livereload": "*",
+    "gulp-uglify": "*",
+    "gulp-minify-css": "*",
+    "tiny-lr": "*",
+    "gulp-coffee": "*",
+    "gulp-svgmin": "~0.4.1",
+    "gulp-imagemin": "~0.1.5",
+    "gulp-concat": "~2.1.7",
+    "connect-livereload": "~0.3.2",
+    "gulp-rename": "~1.1.0",
+    "jquery": "~2.1.0"
+  }
+}

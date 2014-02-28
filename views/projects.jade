@@ -1,0 +1,22 @@
+.project-markers
+	each p in projects
+		a.marker-link(href="##{p.id}")
+			div(class="marker project-marker-#{p.id}")
+			.project-bubble.is-hidden
+				h3 #{p.name}
+				
+.container.projects
+	each p in projects
+		.fixie-spacer(id="#{p.id}")
+		article.project(class="project-#{p.id}")
+			.project-part.project-desc
+				.fixie(data-marker="project-marker-#{p.id}")
+					p #{p.desc}
+					a(href="http://#{p.url}")
+						button.button View Site
+			.project-part.project-imgs
+				- for (var i = 0; i < p.imgs; ++i)
+					.project-img
+						img(src = '/img/projects/#{p.id}_0#{i+1}.min.png', alt = '')
+		.fixie-spacer
+				
