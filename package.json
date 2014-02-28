@@ -6,9 +6,9 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "3.4.3",
-    "jade": "1.1.5",
-    "stylus": "0.42.2",
+    "express": "*",
+    "jade": "*",
+    "stylus": "*",
     "coffee-script": "*",
     "gulp": "3.5.2"
   },
