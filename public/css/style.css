@@ -93,9 +93,10 @@ main{background-color:#fff;margin-bottom:10rem}
 .grid .project-vse{background:#f5f5f5 url("../img/vse.min.png") no-repeat;background-size:auto 100%;background-position:center;}
 @media screen and (max-width: 768px){.grid .project-vse{background-size:90% auto;background-position:bottom}
 }@media screen and (max-width: 640px){.grid .project-vse{background-size:auto 90%}
-}.panel{background-color:#fe9088;color:#fff;position:fixed;left:0;top:0;height:100%;width:100%;max-width:52rem;z-index:9998;overflow-y:auto;-webkit-transition:-webkit-transform .5s ease;transition:transform .5s ease;-webkit-transform:translateX(-52rem);transform:translateX(-52rem);}
-@media screen and (max-width: 640px){.panel{width:calc(100% - 3rem)}
-.panel p{font-size:21px;font-size:1.3rem}
+}.panel{background-color:#fe9088;color:#fff;position:fixed;left:0;top:0;height:100%;width:100%;z-index:9998;overflow-y:auto;-webkit-transition:-webkit-transform .5s ease;transition:transform .5s ease;-webkit-transform:translateX(-80rem);transform:translateX(-80rem);}
+@media screen and (min-width: 640px){.panel{max-width:52rem}
+}@media screen and (max-width: 640px){.panel{width:calc(100% - 3rem)}
+}@media screen and (max-width: 640px), (-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi){.panel p{font-size:16px;font-size:1rem}
 }.panel .social-set a{display:inline-block;width:3.5rem;height:3.5rem;margin:3.5rem .5rem 0;padding:.75rem;background-color:#fff;}
 .panel .social-set a:nth-child(1){margin-left:0}
 .panel .social-set a svg path,.panel .social-set a svg circle{fill:#fe9088}
