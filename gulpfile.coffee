@@ -4,7 +4,6 @@ path = require("path")
 stylus = require("stylus")
 axis = require("axis-css")
 jeet = require("jeet")
-jquery = require('jquery');
 app = express()
 
 gulp = require("gulp")
