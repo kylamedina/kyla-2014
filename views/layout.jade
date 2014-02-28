@@ -14,13 +14,12 @@ html
 		meta(name="apple-mobile-web-app-capable",content="yes")
 		meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
 
-		link(rel='stylesheet', href='/css/style.css')
+		//- link(rel='stylesheet', href='/css/style.css')
 		style.
-			body{opacity:0;animation:fade 1s ease 0s 1 normal forwards}
-			/*.wf-active body {
-				opacity: 1;
+			.wf-active body {
+				opacity: 1 !important;
 				transition: opacity 0.5s ease
-			}*/
+			}
 			.absolute-center {
 				width: 3rem;
 				height: 3rem;
@@ -39,14 +38,6 @@ html
 			}@-ms-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 			}@keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 			}
-			}@-moz-keyframes fade{100%{opacity:1}
-			}@-webkit-keyframes fade{100%{opacity:1}
-			}@-o-keyframes fade{100%{opacity:1}
-			}@-ms-keyframes fade{100%{opacity:1}
-			}@keyframes fade{100%{opacity:1}
-			}
-
-
 
 		link(rel='apple-touch-icon-precomposed', sizes='144x144', href='fav/apple-touch-icon-144x144-precomposed.png')
 		link(rel='apple-touch-icon-precomposed', sizes='114x114', href='fav/apple-touch-icon-114x114-precomposed.png')
@@ -71,7 +62,7 @@ html
 			})();
 
 
-	body#top.markers-hidden.ajax-home
+	body#top.markers-hidden.ajax-home(style="opacity:0;")
 		.loading.center-container
 			svg.loading-img.absolute-center(version='1.2', baseprofile='tiny', xmlns='http://www.w3.org/2000/svg', viewbox='0 0 100 100')
 				path(fill='#555', d='M15.51.577l84.074 84.074-15.556 15.556-84.074-84.074zM99.609 16.162l-84.074 84.074-15.556-15.556 84.074-84.074z')
