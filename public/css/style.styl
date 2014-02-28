@@ -184,8 +184,8 @@ main
 	max-width 144rem
 	@media screen and (max-width: 1800px)
 		margin 0 6rem
-	// @media all and (max-width: 768px)
-	// 	margin 0
+	@media all and (max-width: 640px)
+		margin 0
 
 // BUTTON ///////////////////////////////////////
 
@@ -330,9 +330,12 @@ button()
 	@media all and (max-width: 850px)
 		&.h1, &.h2
 			height 26rem
+	@media all and (max-width: 640px)
+		&.h1, &.h2
+			height 30rem
 	@media all and (max-width: 480px)
 		&.h1, &.h2
-			height 20rem
+			height 21rem
 	&.is-hidden
 		opacity 0
 		transform: scale(0.001)
@@ -388,7 +391,7 @@ button()
 			background-size auto 90% 
 	.project-clear
 		background litegray url('../img/clear.min.png') no-repeat
-		background-size cover
+		background-size auto 100%
 		background-position right bottom
 	.project-vse
 		background litegray url('../img/vse.min.png') no-repeat
@@ -397,6 +400,8 @@ button()
 		@media screen and (max-width: 768px)
 			background-size 90% auto
 			background-position bottom
+		@media screen and (max-width: 640px)
+			background-size auto 90%
 
 // PANEL //////////////////////////////////////////
 
