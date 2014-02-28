@@ -3,7 +3,6 @@ html{overflow-y:scroll;overflow-x:hidden;font-size:62.5%;-webkit-font-smoothing:
 img,video,audio,embed,object,input,iframe,svg{width:100%;max-width:100%}
 *:focus{outline:0}
 body,html{font-family:"Trim Mono Light","Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",'Bitstream Vera Sans Mono', Consolas, Courier, monospace;font-weight:200;font-style:normal;color:#555}
-body{animation:fade 1s ease 0s 1 normal forwards}
 .border{background-color:#555;position:fixed;-webkit-transition:-webkit-transform .5s ease;transition:transform .5s ease;}
 @media screen and (max-width: 640px){.border{display:none}
 }.border.top,.border.bottom{height:2rem;width:100%}
@@ -98,7 +97,7 @@ h1.scrolling .hide{opacity:0;width:0 !important;-webkit-transition:width .2s lin
 .email-button:hover{background-color:#fff;border:.3rem solid #fff;}
 .email-button:hover p{color:#fe9088}
 .email-button:hover svg path{fill:#fe9088}
-.panel-close{width:2rem;height:2rem;position:absolute;right:42rem;top:5.5rem;transition:all .5s ease .05s;}
+.panel-close{width:2rem;height:2rem;position:absolute;right:40rem;top:5.3rem;transition:all .5s ease .05s;}
 @media screen and (max-width: 640px){.panel-close{display:none}
 }.panel-content{margin:4rem 8rem;-webkit-transform:translateX(-15rem);transform:translateX(-15rem);}
 .panel-content:nth-of-type(2){margin-top:15rem}
@@ -206,9 +205,4 @@ h1.scrolling .hide{opacity:0;width:0 !important;-webkit-transition:width .2s lin
 }@-o-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 }@-ms-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 }@keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
-}@-moz-keyframes fade{100%{opacity:1}
-}@-webkit-keyframes fade{100%{opacity:1}
-}@-o-keyframes fade{100%{opacity:1}
-}@-ms-keyframes fade{100%{opacity:1}
-}@keyframes fade{100%{opacity:1}
 }
