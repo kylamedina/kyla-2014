@@ -23,6 +23,9 @@ img,video,audio,embed,object,input,iframe,svg
 *:focus
 	outline 0
 
+svg
+	cursor pointer
+	pointer-events: none
 
 // VARIABLES ///////////////////////////////////////////////
 
@@ -305,6 +308,7 @@ button()
 	float left
 	display inline-block
 	vertical-align top
+	cursor pointer
 	// transition all 0.1s linear
 	&.w1
 		width 30%
@@ -440,6 +444,9 @@ button()
 		color white
 		border-bottom 2px solid white
 		text-decoration none
+
+.activate-panel
+	cursor pointer
 
 .panel-full-width
 	position relative
