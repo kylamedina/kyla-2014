@@ -7,11 +7,11 @@
   },
   "dependencies": {
     "express": "3.4.3",
-    "jade": "*",
-    "stylus": "*",
-    "coffee-script": "*",
-    "gulp": "*",
-    "gulp-load-plugins": "*"
+    "jade": "1.1.5",
+    "stylus": "0.42.2",
+    "coffee-script": "1.7.1",
+    "gulp": "3.5.2",
+    "gulp-load-plugins": "0.3.0"
   },
   "devDependencies": {
     "axis-css": "~0.2.x",
