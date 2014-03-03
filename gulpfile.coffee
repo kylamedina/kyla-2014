@@ -98,19 +98,18 @@ gulp.task 'svg', (event) ->
 		.pipe(plugins.notify(message: "SVGs minified"))
 
 gulp.task 'imgs', (event) ->
-	# gulp.src('./dev/img/projects/*.png')
-	# 	.pipe(plugins.imagemin())
-	# 	.pipe(plugins.rename(
-	# 		suffix: ".min"
-	# 		))
-	# 	.pipe(gulp.dest('./public/img/projects'))
+	gulp.src('./dev/img/projects/*.png')
+		.pipe(plugins.imagemin())
+		.pipe(plugins.rename(
+			suffix: ".min"
+			))
+		.pipe(gulp.dest('./public/img/projects'))
 	gulp.src(['./dev/img/*.jpg','./dev/img/*.png'])
 		.pipe(plugins.imagemin())
 		.pipe(plugins.rename(
 			suffix: ".min"
 			))
 		.pipe(gulp.dest('./public/img'))
-		.pipe(plugins.notify(message: "Images minified"))
 
 gulp.task 'js', (event) ->
 	gulp.src(['./dev/js/vendor/jquery.fixer.js','./dev/js/vendor/waypoints.min.js', './dev/js/vendor/mason.min.js'])
