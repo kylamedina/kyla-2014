@@ -1,8 +1,8 @@
 doctype html
 html
 	head
-		script(src="//cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js")
-		//- script(src="js/head.min.js")
+		//- script(src="//cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js")
+		script(src="js/head.min.js")
 
 		title Kyla Medina
 		meta(charset="utf-8")
@@ -66,11 +66,12 @@ html
 		.loading.center-container
 			svg.loading-img.absolute-center(version='1.2', baseprofile='tiny', xmlns='http://www.w3.org/2000/svg', viewbox='0 0 100 100')
 				path(fill='#555', d='M15.51.577l84.074 84.074-15.556 15.556-84.074-84.074zM99.609 16.162l-84.074 84.074-15.556-15.556 84.074-84.074z')
+
 		include includes/panel
 		
 		.border.left
 		.border.right
-		
+
 		header.header-main
 			h1.fixed-left.fixed-top(data-page='home') 
 				span K
@@ -89,8 +90,8 @@ html
 				span.hide a
 
 			.mobile-menu.activate-panel
-				svg(xmlns='http://www.w3.org/2000/svg', viewbox='50 118.5 412 275', enable-background='new 50 118.5 412 275')
-					path(d='M462 183.5h-412v-65h412v65zm0 40h-412v65h412v-65zm0 105h-412v65h412v-65z')
+				svg(version='1.2', baseprofile='tiny', xmlns='http://www.w3.org/2000/svg', viewbox='0 0 100 100')
+					path(fill='none', d='M32.6 35l34.8-34.7 15.1 15.1-34.8 34.8 34.8 34.7-15.1 15.1-49.9-49.8z')
 
 		nav.nav-main.fixed-center
 			button.fixed-left.activate-panel profile
@@ -119,6 +120,8 @@ html
 				svg(xmlns='http://www.w3.org/2000/svg', viewbox='206 206 100 100', enable-background='new 206 206 100 100')
 					path(id="icon-vsco", d='M245.6 206.2c-.6 5.1-1.8 9.4-3.5 12.7-1.7 3.3-3.9 6.2-6.7 8.5-2.8 2.4-6.1 4.2-10 5.5v14.2h10.9v34.9c0 4.6.5 8 1.4 10.4 1 2.4 2.7 4.7 5.1 6.8 2.5 2.1 5.5 3.8 9 4.9 3.5 1.1 7.5 1.7 12.1 1.7 4 0 7.7-.4 11.2-1.2 3.4-.8 7.3-2.2 11.6-4.2v-15.7c-5 3.3-10 4.9-15.1 4.9-2.8 0-5.4-.7-7.6-2-1.7-1-2.8-2.3-3.4-3.9-.6-1.6-.9-5.4-.9-11.1v-25.6h23.7v-15.6h-23.7v-25.3h-14.1z')
 
+		.panel-overlay
+			p hi@ky.la
 
 		.border.top
 		.border.bottom

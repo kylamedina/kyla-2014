@@ -1,8 +1,7 @@
 .panel
-
-	.activate-panel
+	a(href="#").activate-panel
 		svg.panel-close(version='1.2', baseprofile='tiny', xmlns='http://www.w3.org/2000/svg', viewbox='0 0 100 100')
-			path(fill='#fff', d='M15.51.577l84.074 84.074-15.556 15.556-84.074-84.074zM99.609 16.162l-84.074 84.074-15.556-15.556 84.074-84.074z')
+				path(fill='#fff', d='M15.51.577l84.074 84.074-15.556 15.556-84.074-84.074zM99.609 16.162l-84.074 84.074-15.556-15.556 84.074-84.074z')
 	.panel-content
 		p
 			| I am a front-end engineer at 
@@ -12,8 +11,7 @@
 			| . 
 
 	.panel-full-width
-		img(src="./img/profile.min.png")
-		
+		img.profile-pic(src="./img/profile.min.png")
 
 	.panel-content
 		p
@@ -33,13 +31,16 @@
 				svg(xmlns='http://www.w3.org/2000/svg', viewbox='206 206 100 100', enable-background='new 206 206 100 100')
 					path(id="icon-vsco", d='M245.6 206.2c-.6 5.1-1.8 9.4-3.5 12.7-1.7 3.3-3.9 6.2-6.7 8.5-2.8 2.4-6.1 4.2-10 5.5v14.2h10.9v34.9c0 4.6.5 8 1.4 10.4 1 2.4 2.7 4.7 5.1 6.8 2.5 2.1 5.5 3.8 9 4.9 3.5 1.1 7.5 1.7 12.1 1.7 4 0 7.7-.4 11.2-1.2 3.4-.8 7.3-2.2 11.6-4.2v-15.7c-5 3.3-10 4.9-15.1 4.9-2.8 0-5.4-.7-7.6-2-1.7-1-2.8-2.3-3.4-3.9-.6-1.6-.9-5.4-.9-11.1v-25.6h23.7v-15.6h-23.7v-25.3h-14.1z')
 
-			a(href="mailto:hi@ky.la",target="_blank")
-				svg(xmlns='http://www.w3.org/2000/svg', viewbox='206 206 100 100', enable-background='new 206 206 100 100')
-					path(d='M306 207.2l-25.9 92.8-33-31.3 32.5-34.3-43.6 30.1-30.1-7.3 100.1-50zm-62.9 67.4v30.2l14.3-16.5-14.3-13.7z')
+			//- a(href="mailto:hi@ky.la",target="_blank")
+			//- 	svg(xmlns='http://www.w3.org/2000/svg', viewbox='206 206 100 100', enable-background='new 206 206 100 100')
+			//- 		path(d='M306 207.2l-25.9 92.8-33-31.3 32.5-34.3-43.6 30.1-30.1-7.3 100.1-50zm-62.9 67.4v30.2l14.3-16.5-14.3-13.7z')
 
-		a(href="mailto:hi@ky.la",target="_blank")
-			.button.email-button.show-large
-				svg(xmlns='http://www.w3.org/2000/svg', viewbox='206 206 100 100', enable-background='new 206 206 100 100')
-					path(d='M306 207.2l-25.9 92.8-33-31.3 32.5-34.3-43.6 30.1-30.1-7.3 100.1-50zm-62.9 67.4v30.2l14.3-16.5-14.3-13.7z')
-				p
-					| Email me
+.panel-overlay.activate-panel
+	a(href="mailto:hi@ky.la")
+		h3 hi@ky.la
+	a(href="http://twitter.com/kylamedina")
+		h3 @kylamedina
+	a(href="http://imadethisforyou.net")
+		h3 imadethisforyou.net
+	a(href="http://github.com/kylamedina")
+		h3 /kylamedina

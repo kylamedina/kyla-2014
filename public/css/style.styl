@@ -6,6 +6,7 @@ normalize()
 	box-sizing: border-box
 	margin: 0
 	padding: 0
+	-webkit-backface-visibility: hidden
 
 html
 	overflow-y: scroll
@@ -25,7 +26,7 @@ img,video,audio,embed,object,input,iframe,svg
 
 svg
 	cursor pointer
-	pointer-events: none
+	// pointer-events: none
 
 // VARIABLES ///////////////////////////////////////////////
 
@@ -56,8 +57,8 @@ body, html
 .border
 	background-color black
 	position fixed
-	-webkit-transition -webkit-transform 0.5s ease
-	transition transform 0.5s ease
+	z-index 2000
+	-webkit-transform none
 	@media screen and (max-width: 640px)
 		display none
 	&.top, &.bottom
@@ -77,9 +78,9 @@ body, html
 
 
 // TYPOGRAPHY ///////////////////////////////////
-
-h1
+h1, h2, h3, h4, h5, h6
 	soleilxbold()
+h1
 	fs(2.5rem)
 	cursor pointer
 	text-transform uppercase
@@ -108,7 +109,9 @@ h1
 				width 0px !important
 				-webkit-transition width 0.2s linear, opacity 0.1s linear
 				transition width 0.2s linear, opacity 0.1s linear
-
+h3
+	fs(2.5rem)
+		
 p
 	fs(1.3rem)
 	trimmonolight()
@@ -138,15 +141,13 @@ p
 	transform none
 	-webkit-transition -webkit-transform 0.5s ease
 	transition transform 0.5s ease
-	z-index 999
+	z-index 400
 .fixed-center
 	top 50%
 .fixed-left
 	left 6rem
-
 .fixed-right
 	right 6rem
-
 .fixed-top
 	top 5rem
 .fixed-bottom
@@ -157,28 +158,26 @@ main
 	margin-bottom: 10rem
 .view-main
 	margin 0 3rem
-	-webkit-transform none
-	transform none
-	-webkit-transition all 0.5s ease
-	transition all 0.5s ease
+	-webkit-transform translateY(0rem)
+	transform translateY(0rem)
+	-webkit-transition all 0.5s ease 0s
+	transition all 0.5s ease 0s
 	&.is-loading
 		opacity 0
 		-webkit-transform translateY(10rem)
 		transform translateY(10rem)
-		-webkit-transition all 0.5s linear 0
-		transition all 0.5s linear 0
+		-webkit-transition all 0.5s ease 0s
+		transition all 0.5s ease 0s
 	@media all and (max-width: 768px)
 		margin 0 9rem
 	@media all and (max-width: 768px)
 		margin 0 3rem
 .ajax-projects
 	.view-main
-		padding-top 3rem
 		@media all and (max-width: 768px)
 			padding-bottom 10rem
 .ajax-home
 	.view-main
-		padding-top 15rem
 		@media all and (max-width: 640px)
 			padding-top 8rem
 
@@ -224,7 +223,7 @@ main
 			margin-left: 3rem
 		@media screen and (max-width: 640px)
 			top 1.1rem
-			left 2rem
+			left 0rem
 
 // NAV //////////////////////////////////////////
 
@@ -287,6 +286,12 @@ button()
 	display none
 	background-color black
 	svg
+		-webkit-transform scale(0.6) rotate(180deg)
+		transform scale(0.6) rotate(180deg)
+		-webkit-transform-origin 50%
+		transform-origin 50%
+		-webkit-transition -webkit-transform 0.5s ease
+		transition transform 0.5s ease
 		path
 			fill white
 	@media screen and (max-width: 640px)
@@ -297,6 +302,16 @@ button()
 		position absolute
 		right 0
 		z-index 9999
+
+.panel-is-open
+	.mobile-menu
+		svg
+			-webkit-transform scale(0.6) rotate(0deg)
+			transform scale(0.6) rotate(0deg)
+			-webkit-transform-origin 50%
+			transform-origin 50%
+			-webkit-transition -webkit-transform 0.5s ease
+			transition transform 0.5s ease
 
 // GRID /////////////////////////////////////////
 
@@ -314,7 +329,7 @@ button()
 		width 30%
 	&.w2
 		width 62.5%
-	@media all and (max-width: 1220px)
+	@media all and (max-width: 640px)
 		&.w1, &.w2
 			width 46%
 	@media all and (max-width: 850px)
@@ -331,19 +346,19 @@ button()
 		height 24rem
 	&.h2
 		height 48rem
-	@media all and (max-width: 850px)
-		&.h1, &.h2
-			height 26rem
-	@media all and (max-width: 640px)
-		&.h1, &.h2
-			height 30rem
+	// @media all and (max-width: 850px)
+	// 	&.h1, &.h2
+	// 		height 26rem
+	// @media all and (max-width: 640px)
+	// 	&.h1, &.h2
+	// 		height 30rem
 	@media all and (max-width: 480px)
 		&.h1, &.h2
 			height 21rem
 	&.is-hidden
 		opacity 0
 		transform: scale(0.001)
-		@media all and (max-width: 1220px)
+		@media all and (max-width: 640px)
 			display none
 	&:hover
 		box-shadow 15px 17px 0 black
@@ -358,7 +373,6 @@ button()
 		color black
 		fs(1.5rem)
 		opacity 0
-		// trimmonolight()
 		soleilxbold()
 		text-transform uppercase
 		background-color white
@@ -399,12 +413,10 @@ button()
 		background-position right bottom
 	.project-vse
 		background litegray url('../img/vse.min.png') no-repeat
+		background-size 100% auto
 		background-size auto 100%
 		background-position center
-		@media screen and (max-width: 768px)
-			background-size 90% auto
-			background-position bottom
-		@media screen and (max-width: 640px)
+		@media screen and (max-width: 420px)
 			background-size auto 90%
 
 // PANEL //////////////////////////////////////////
@@ -419,10 +431,10 @@ button()
 	width 100%
 	z-index 9998
 	overflow-y auto
-	-webkit-transition -webkit-transform 0.5s ease
-	transition transform 0.5s ease
-	-webkit-transform translateX(-80rem)
-	transform translateX(-80rem)
+	-webkit-transition -webkit-transform 0.55s eas-in-sine
+	transition transform 0.55s eas-in-sine
+	-webkit-transform translateX(-60rem)
+	transform translateX(-60rem)
 	@media screen and (min-width: 640px)
 		max-width 52rem
 	@media screen and (max-width: 640px)
@@ -455,41 +467,13 @@ button()
 .panel-full-width
 	position relative
 
-.email-button
-	background-color transparent
-	margin 4rem 0
-	width 100%
-	display block
-	border 0.3rem solid white
-	text-align center
-	p
-		color white
-		soleilxbold()
-		display inline-block
-		vertical-align top
-		margin-left 1rem
-	svg 
-		width 2rem
-		height 2rem
-		display inline-block
-		path
-			fill white
-	&:hover
-		background-color white
-		border 0.3rem solid white
-		p
-			color pink
-		svg
-			path
-				fill pink
-
 .panel-close
 	width 2rem
 	height 2rem
 	position absolute
 	right 43rem
 	top 5.3rem
-	transition all 0.5s ease 0.05s
+	transition all 0.5s eas-in-sine 0.05s
 	@media screen and (max-width: 640px)
 		display none
 
@@ -497,37 +481,45 @@ button()
 	margin 4rem 8rem
 	-webkit-transform translateX(-15rem)
 	transform translateX(-15rem)
-	&:nth-of-type(2)
+	&:nth-of-type(1)
 		margin-top 15rem
+
 @media screen and (max-width: 640px)
 	.panel-content
-		margin 2rem 2rem 2rem 3rem
+		margin 2rem 3rem 2rem 5.5rem
 		-webkit-transform translateX(0rem)
 		transform translateX(0rem)
-		&:nth-of-type(2)
+		&:nth-of-type(1)
 			margin-top 10rem !important
 	
-
 .panel img
 	opacity 0
 	-webkit-transform translateX(-15rem)
 	transform translateX(-15rem)
-	-webkit-transition all 0.5s ease 0.2s
-	transition all 0.5s ease 0.2s
+	-webkit-transition all 0.5s eas-in-sine
+	transition all 0.5s eas-in-sine
+	display block
 	@media screen and (max-width: 640px)
 		-webkit-transform translateX(0rem)
 		transform translateX(0rem)
 		opacity 1
-	
+
+.view-main, .border.left, .border.right, .header-main h1
+	-webkit-transform none
+	transform none
+	-webkit-transition -webkit-transform 0.5s eas-in-sine
+	transition transform 0.5s eas-in-sine
+
 .panel-is-open
 	.view-main, .border.left, .border.right, .header-main h1
-		-webkit-transform translateX(50rem)
-		transform translateX(50rem)
-		-webkit-transition -webkit-transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
-		transition transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		-webkit-transform translateX(50.3rem)
+		transform translateX(50.3rem)
+		-webkit-transition -webkit-transform 0.5s ease-out-circ
+		transition transform 0.5s ease-out-circ
+
 	button.fixed-left, button.fixed-right
-		-webkit-transition -webkit-transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
-		transition transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		-webkit-transition -webkit-transform 0.5s ease-out-circ
+		transition transform 0.5s ease-out-circ
 	button.fixed-left
 		-webkit-transform translateX(45.55rem) rotate(90deg)
 		transform translateX(45.55rem) rotate(90deg)
@@ -535,43 +527,100 @@ button()
 		-webkit-transform translateX(45.55rem) rotate(-90deg)
 		transform translateX(45.55rem) rotate(-90deg)
 	.panel
-		-webkit-transform translateX(-2rem)
-		transform translateX(-2rem)
-		-webkit-transition -webkit-transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
-		transition transform 0.55s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		-webkit-transform translateX(-1.7rem)
+		transform translateX(-1.7rem)
+		-webkit-transition -webkit-transform 0.45s ease-out-circ
+		transition transform 0.45s ease-out-circ
+		@media screen and (max-width: 640px)
+			border-right 0.3rem solid black
+
 	.panel-close
 		right 7rem
 		-webkit-transform rotate(720deg)
 		transform rotate(720deg)
-		-webkit-transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
-		transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+		-webkit-transition all 0.45s ease-out-circ
+		transition all 0.45s ease-out-circ
 		&:hover
 			-webkit-transform rotate(540deg) !important
 			transform rotate(540deg) !important
-			-webkit-transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
-			transition all 0.45s cubic-bezier(0.250,  0.460, 0.450, 1.200)
+			-webkit-transition all 0.45s linear
+			transition all 0.45s linear
 	.panel-content
 		-webkit-transform translateX(0rem)
 		transform translateX(0rem)
-		&:nth-of-type(2)
+		&:nth-of-type(1)
 			margin-top 15rem
-			-webkit-transition -webkit-transform 0.25s linear 0.05s
-			transition transform 0.25s linear 0.05s
+			-webkit-transition -webkit-transform 0.35s ease-out-cubic 0.15s
+			transition transform 0.35s ease-out-cubic 0.15s
 		&:nth-of-type(3)
-			-webkit-transition -webkit-transform 0.25s linear 0.05s
-			transition transform 0.25s linear 0.05s
+			-webkit-transition -webkit-transform 0.35s ease-out-cubic 0.25s
+			transition transform 0.35s ease-out-cubic 0.25s
 	.panel img
 		opacity 1
 		-webkit-transform translateX(0rem)
 		transform translateX(0rem)
-		-webkit-transition all 0.3s linear
-		transition all 0.3s linear
+		-webkit-transition all 0.3s ease-out-circ
+		transition all 0.3s ease-out-circ
+	
+	.panel-overlay
+		-webkit-transform translate(0rem,0rem)
+		transform translate(0rem,0rem)
+		opacity 1
+		-webkit-transition all 0.5s ease-out-circ
+		transition all 0.5s ease-out-circ
+
 
 @media screen and (max-width: 640px)
 	.panel-is-open
 		.header-main h1
 			-webkit-transform none
 			transform none
+
+.panel-overlay
+	background-color rgba(white,0.95)
+	height 100%
+	-webkit-transform translate(0rem,-250rem)
+	transform translate(0rem,-250rem)
+	-webkit-transition all 0.5s ease
+	transition all 0.5s ease
+	opacity 0
+	overflow hidden
+	position fixed
+	width 100%
+	z-index 500
+	a
+		position fixed
+		bottom 5.5rem
+		left 5.5rem
+		display inline-block
+		text-decoration none
+		color black
+		padding-bottom 0.3rem
+		border-bottom 0.3rem solid black
+		overlayt =  -15rem -10rem -5rem 0rem
+		for overlayt, i in overlayt
+			&:nth-child({i+1})
+				-webkit-transform translate(50rem,overlayt)
+				transform translate(50rem,overlayt)
+		&:visited
+			color black
+		&:hover
+			color pink
+			border-bottom 0.3rem solid pink
+		@media screen and (max-width: 640px)
+			&:nth-child(1)
+				-webkit-transform translate(0rem,13rem) rotate(90deg)
+				transform translate(0rem,13rem) rotate(90deg)
+				bottom auto
+				left auto 
+				right -2.4rem
+				top 0rem
+				border-bottom none
+				&:hover
+					border-bottom none
+			&:nth-child(n+2)
+				display none
+				
 
 // PROJECTS /////////////////////////////////////
 
@@ -628,6 +677,7 @@ button()
 	&:last-of-type
 		margin-bottom 0
 
+
 // FIXIE FOR PROECTS ///////////////////////////
 
 .fixie
@@ -667,6 +717,7 @@ button()
 		-webkit-transition all 0.2s ease
 		transition all 0.2s ease
 
+
 // SOCIAL ///////////////////////////////////////
 
 .social
@@ -703,6 +754,7 @@ button()
 
 
 // PROJECT MARKERS ////////////////////////////
+
 .ajax-projects
 	&.markers-hidden
 		button[data-page='projects']
@@ -747,7 +799,7 @@ button()
 			background-color pink
 			border 0.3rem solid pink
 .marker-link
-	h3
+	h4
 		line-height 1
 		margin 0
 		padding 0
@@ -787,8 +839,8 @@ button()
 		width: 1.2rem
 		position: absolute
 		right 0
-		-webkit-transform translate(1.3rem, -1.1rem)
-		transform translate(1.3rem, -1.1rem)
+		-webkit-transform translate(1.2rem, -1.1rem)
+		transform translate(1.2rem, -1.1rem)
 
 // ANIMATIONS ///////////////////////////////////
 
