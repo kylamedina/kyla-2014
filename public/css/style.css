@@ -147,7 +147,7 @@ main{background-color:#fff;margin-bottom:10rem}
 }@media all and (max-width: 850px){.project-desc{width:100%}
 }@media screen and (max-width: 850px){.project-desc{padding-bottom:5rem}
 }.project-desc .button{margin-top:2rem}
-.project-imgs{max-width:90rem;transition:margin .2s ease 0s;padding:5rem;background-color:#f5f5f5;}
+.project-imgs{width:100%;max-width:90rem;transition:margin .2s ease 0s;padding:5rem;background-color:#f5f5f5;}
 @media all and (max-width: 767px){.project-imgs{padding:1rem}
 }.project-imgs img{opacity:0;transition:opacity .5s ease}
 .project-img{margin-top:5rem;margin-bottom:5rem;}
