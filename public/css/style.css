@@ -177,12 +177,12 @@ main{background-color:#fff;margin-bottom:10rem}
 .project-markers .marker.is-active{background-color:#555}
 .project-markers .marker:hover{background-color:#fe9088;border:.3rem solid #fe9088}
 .marker-link h4{line-height:1;margin:0;padding:0;white-space:pre;text-align:center}
-.marker-link:nth-child(1) .project-bubble{left:-5rem;top:-3.25rem}
-.marker-link:nth-child(2) .project-bubble{left:-5rem;top:-5.1rem}
-.marker-link:nth-child(3) .project-bubble{left:-5rem;top:-6.9rem}
-.marker-link:nth-child(4) .project-bubble{left:-5rem;top:-8.6rem}
-.marker-link:nth-child(5) .project-bubble{left:-5rem;top:-10.6rem}
-.marker-link:nth-child(6) .project-bubble{left:-5rem;top:-12.25rem}
+.marker-link:nth-child(1) .project-bubble{left:-5rem;top:-3.2rem}
+.marker-link:nth-child(2) .project-bubble{left:-5rem;top:-4.8rem}
+.marker-link:nth-child(3) .project-bubble{left:-5rem;top:-6.5rem}
+.marker-link:nth-child(4) .project-bubble{left:-5rem;top:-8rem}
+.marker-link:nth-child(5) .project-bubble{left:-5rem;top:-9.75rem}
+.marker-link:nth-child(6) .project-bubble{left:-5rem;top:-11.3rem}
 .marker-link:hover .project-bubble{opacity:1;-webkit-transition:opacity .3s ease;transition:opacity .3s ease;-webkit-animation:translateMarkers .2s ease 0s 1 normal forwards;animation:translateMarkers .2s ease 0s 1 normal forwards}
 .project-bubble{background-color:#fff;color:#555;float:right;text-transform:uppercase;padding:1rem 1.5rem;position:relative;opacity:0;transition:opacity .1s ease;border:.3rem solid #555;}
 .project-bubble:after{content:'';background:url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIGJhc2VQcm9maWxlPSJ0aW55IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxNSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTS00LS41bDE1LjggNy45LTE1LjggOHoiLz48cGF0aCBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBmaWxsPSJub25lIiBkPSJNLTUuNy0xLjVsMTguMiA5TTEyLjYgNy41bC0xOC4zIDkiLz48L3N2Zz4=") no-repeat;background-size:1.5rem 1.2rem;height:1.5rem;width:1.2rem;position:absolute;right:0;-webkit-transform:translate(1.2rem,-1.1rem);transform:translate(1.2rem,-1.1rem)}
