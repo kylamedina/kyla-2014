@@ -28,6 +28,9 @@ svg
 	cursor pointer
 	// pointer-events: none
 
+a
+	text-shadow none
+
 // VARIABLES ///////////////////////////////////////////////
 
 pink = rgba(#FE9088)
@@ -156,6 +159,8 @@ p
 main
 	background-color white
 	margin-bottom: 10rem
+	@media all and (max-width: 640px)
+		margin-bottom: 5rem
 .view-main
 	margin 0 3rem
 	-webkit-transform translateY(0rem)
@@ -169,17 +174,16 @@ main
 		-webkit-transition all 0.5s ease 0s
 		transition all 0.5s ease 0s
 	@media all and (max-width: 768px)
-		margin 0 9rem
-	@media all and (max-width: 768px)
+		padding-bottom 10rem
 		margin 0 3rem
-.ajax-projects
-	.view-main
-		@media all and (max-width: 768px)
-			padding-bottom 10rem
-.ajax-home
-	.view-main
-		@media all and (max-width: 640px)
-			padding-top 8rem
+	@media all and (max-width: 640px)
+		padding-bottom 8rem
+		margin 0 2rem
+	@media all and (max-width: 420px)
+		padding-top 6rem
+			
+		
+
 
 .container
 	margin 0 auto
@@ -219,11 +223,15 @@ main
 		top 0
 		border-bottom 0.3rem solid black
 	h1
+		&:hover
+			color pink
 		@media screen and (max-width: 1800px)
 			margin-left: 3rem
 		@media screen and (max-width: 640px)
 			top 1.1rem
 			left 0rem
+			display inline-block
+
 
 // NAV //////////////////////////////////////////
 
@@ -285,6 +293,8 @@ button()
 .mobile-menu
 	display none
 	background-color black
+	&:hover, &:active
+		background-color pink
 	svg
 		-webkit-transform scale(0.6) rotate(180deg)
 		transform scale(0.6) rotate(180deg)
@@ -296,7 +306,7 @@ button()
 			fill white
 	@media screen and (max-width: 640px)
 		display inline-block
-		height 5rem
+		height 4.7rem
 		width 5rem
 		padding 1rem
 		position absolute
@@ -532,8 +542,9 @@ button()
 		-webkit-transition -webkit-transform 0.45s ease-out-circ
 		transition transform 0.45s ease-out-circ
 		@media screen and (max-width: 640px)
-			border-right 0.3rem solid black
-
+			border-right 0.3rem solid white
+			p
+				font-size 10px
 	.panel-close
 		right 7rem
 		-webkit-transform rotate(720deg)
@@ -609,8 +620,8 @@ button()
 			border-bottom 0.3rem solid pink
 		@media screen and (max-width: 640px)
 			&:nth-child(1)
-				-webkit-transform translate(0rem,13rem) rotate(90deg)
-				transform translate(0rem,13rem) rotate(90deg)
+				-webkit-transform translate(0rem,13.5rem) rotate(90deg)
+				transform translate(0rem,13.5rem) rotate(90deg)
 				bottom auto
 				left auto 
 				right -2.4rem
@@ -685,7 +696,7 @@ button()
 	position relative
 	max-width 52rem
 	@media all and (max-width: 768px)
-		border-top 0.1rem solid black
+		border-top 0.3rem solid black
 		padding-top 2rem
 		max-width 100%
 		position static !important
@@ -698,7 +709,9 @@ button()
 	height 12rem
 	@media all and (max-width: 768px)
 		height 5rem
-
+	@media all and (max-width: 640px)
+		&:first-of-type
+			height 0.1rem
 
 // FOOTER ///////////////////////////////////////
 
@@ -709,6 +722,11 @@ button()
 	bottom 0
 	color white
 	background-color transparent
+	.back-top
+		color white
+		text-align center
+		margin-top 3.75rem
+		display block
 	@media all and (max-width: 768px)
 		background-color black
 		z-index -1000
