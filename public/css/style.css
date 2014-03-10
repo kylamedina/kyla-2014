@@ -153,7 +153,7 @@ main{background-color:#fff;margin-bottom:10rem;}
 }@media screen and (max-width: 850px){.project-desc{padding-bottom:5rem}
 }.project-desc .button{margin-top:2rem}
 .project-imgs{width:100%;max-width:90rem;transition:margin .2s ease 0s;padding:5rem;background-color:#f5f5f5;}
-.project-imgs .loading-img{width:3rem;height:3rem;margin:auto;display:block;}
+.project-imgs .loading-img{width:3rem;height:3rem;margin:3rem auto;display:block;}
 .project-imgs .loading-img path{fill:#fff}
 @media all and (max-width: 767px){.project-imgs{padding:1rem}
 }.project-imgs img{opacity:0;transition:opacity .5s ease}
