@@ -112,7 +112,7 @@ gulp.task 'imgs', (event) ->
 		.pipe(gulp.dest('./public/img'))
 
 gulp.task 'js', (event) ->
-	gulp.src(['./dev/js/vendor/jquery.fixer.js','./dev/js/vendor/waypoints.min.js', './dev/js/vendor/mason.min.js'])
+	gulp.src(['./dev/js/vendor/jquery.fixer.js'])
 		.pipe(plugins.uglify(
 			outSourceMap: false
 			mangle: false

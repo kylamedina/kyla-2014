@@ -49,6 +49,11 @@ soleilxbold()
 	font-family:"Soleil Extra Bold", Futura, 'Century Gothic', Verdana, sans-serif;
 	font-weight:800
 	font-style:normal
+// soleilxbold()
+// 	font-family:"Apercu Bold", Times, Calibri, sans-serif;
+// 	font-size-adjust:0.508
+// 	font-weight:bold
+// 	font-style:normal
 
 
 // GENERAL /////////////////////////////////////////////////
@@ -182,9 +187,6 @@ main
 	@media all and (max-width: 420px)
 		padding-top 6rem
 			
-		
-
-
 .container
 	margin 0 auto
 	max-width 144rem
@@ -200,12 +202,13 @@ main
 	background-color black
 	border 0.1rem solid white
 	color white
-	soleil()
+	soleilxbold()
 	padding 1.15rem 1.35rem
 	upcase()
 	font-weight bold
 	fs(1rem)
 	cursor pointer
+	letter-spacing 0.1rem
 	&:hover
 		border 0.1rem solid white
 		background-color pink
@@ -473,6 +476,12 @@ button()
 
 .activate-panel
 	cursor pointer
+	&:active
+		.panel-close
+			-webkit-transform scale(0.75)
+			transform scale(0.75)
+			transition -webkit-transform 0.15s ease
+			transition transform 0.25s ease
 
 .panel-full-width
 	position relative
@@ -491,7 +500,7 @@ button()
 	margin 4rem 8rem
 	-webkit-transform translateX(-15rem)
 	transform translateX(-15rem)
-	&:nth-of-type(1)
+	&:nth-of-type(2)
 		margin-top 15rem
 
 @media screen and (max-width: 640px)
@@ -556,6 +565,7 @@ button()
 			transform rotate(540deg) !important
 			-webkit-transition all 0.45s linear
 			transition all 0.45s linear
+
 	.panel-content
 		-webkit-transform translateX(0rem)
 		transform translateX(0rem)
@@ -819,13 +829,14 @@ button()
 			border 0.3rem solid pink
 .marker-link
 	h4
+		fs(1.25rem)
 		line-height 1
 		margin 0
 		padding 0
 		white-space: pre
 		text-align center
 			
-	measure = -3.2rem -4.8rem -6.5rem -8rem -9.75rem -11.3rem
+	measure = -3.2rem -5.25rem -7.2rem -9rem -10.9rem -12.75rem
 	for measure, i in measure
 		&:nth-child({i+1})
 			.project-bubble
