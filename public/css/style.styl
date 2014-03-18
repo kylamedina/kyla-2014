@@ -3,7 +3,9 @@ normalize()
 
 *, *:before, *:after, *::before, *::after
 	*behavior: url(js/vendor/boxsizing.htc)
-	box-sizing: border-box
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	margin: 0
 	padding: 0
 	-webkit-backface-visibility: hidden
@@ -92,7 +94,7 @@ h1
 	fs(2.5rem)
 	cursor pointer
 	text-transform uppercase
-	width 100%
+	display inline-block
 	@media screen and (max-width: 1024px)
 		.show
 			display none
@@ -165,7 +167,7 @@ main
 	background-color white
 	margin-bottom: 10rem
 	@media all and (max-width: 640px)
-		margin-bottom: 5rem
+		margin: 5rem auto
 .view-main
 	margin 0 3rem
 	-webkit-transform translateY(0rem)
@@ -190,7 +192,7 @@ main
 .container
 	margin 0 auto
 	max-width 144rem
-	@media screen and (max-width: 1800px)
+	@media screen and (max-width: 1620px)
 		margin 0 6rem
 	@media all and (max-width: 640px)
 		margin 0
@@ -228,7 +230,7 @@ main
 	h1
 		&:hover
 			color pink
-		@media screen and (max-width: 1800px)
+		@media screen and (max-width: 1620px)
 			margin-left: 3rem
 		@media screen and (max-width: 640px)
 			top 1.1rem
@@ -270,7 +272,7 @@ button()
 	opacity 0
 	-webkit-transition all 0.5s ease
 	transition all 0.5s ease
-	@media screen and (max-width: 1800px)
+	@media screen and (max-width: 1620px)
 		margin-left: 2.8rem
 	@media screen and (max-width: 640px)
 		bottom 2rem
@@ -330,24 +332,42 @@ button()
 
 .container
 	margin-bottom 3rem
-	
+	@media all and (max-width: 1024px)
+		margin-bottom 2%
+	@media all and (max-width: 640px)
+		margin-bottom 0
+.grid-sizer
+	width 32%
+	@media all and (max-width: 1024px)
+		width 46%
+	@media all and (max-width: 640px)
+		width 100%
+.gutter-sizer
+	width 1%
+	@media all and (max-width: 1024px)
+		width 2%
 .grid-item
 	background-color litegray
 	float left
 	display inline-block
 	vertical-align top
 	cursor pointer
+	@extends .grid-sizer
+	margin 0.5% auto
+	@media all and (max-width: 1024px)
+		margin 0 auto
 	// transition all 0.1s linear
-	&.w1
-		width 30%
+	&.shifty
+		-webkit-transform translateX(-3%)
+		transform translateX(-3%)
 	&.w2
-		width 62.5%
-	@media all and (max-width: 640px)
+		width 64%
+	@media all and (max-width: 1024px)
 		&.w1, &.w2
 			width 46%
-	@media all and (max-width: 850px)
-		&.w1, &.w2
-			width 45%
+		&.shifty
+			-webkit-transform translateX(0)
+			transform translateX(0)
 	@media all and (max-width: 640px)
 		&.w1, &.w2
 			width 100%
@@ -359,19 +379,17 @@ button()
 		height 24rem
 	&.h2
 		height 48rem
-	// @media all and (max-width: 850px)
-	// 	&.h1, &.h2
-	// 		height 26rem
-	// @media all and (max-width: 640px)
-	// 	&.h1, &.h2
-	// 		height 30rem
-	@media all and (max-width: 480px)
+
+	@media all and (max-width: 1024px)
 		&.h1, &.h2
-			height 21rem
+			height 24rem
+	// @media all and (max-width: 480px)
+	// 	&.h1, &.h2
+	// 		height 21rem
 	&.is-hidden
 		opacity 0
 		transform: scale(0.001)
-		@media all and (max-width: 640px)
+		@media all and (max-width: 1024px)
 			display none
 	&:hover
 		box-shadow 15px 17px 0 black
@@ -400,9 +418,9 @@ button()
 	.project-ihny
 		background litegray url('../img/ihny.min.png') no-repeat
 		background-size auto 100%
-		background-position left bottom
+		background-position 0 100%
 		@media screen and (max-width: 1330px)
-			background-position center bottom
+			background-position 50% 100%
 			background-size 100% auto
 	.project-rms
 		background litegray url('../img/rms.min.png') no-repeat
@@ -416,10 +434,12 @@ button()
 		background litegray url('../img/sa.min.png') no-repeat
 		background-size auto 100%
 		background-position center bottom
-		@media screen and (max-width: 1330px)
+		@media screen and (max-width: 1380px)
+			background-size auto 90%
+		@media screen and (max-width: 1024px)
 			background-size 90% auto
 		@media screen and (max-width: 640px)
-			background-size auto 90% 
+			background-size auto 90%
 	.project-clear
 		background litegray url('../img/clear.min.png') no-repeat
 		background-size auto 100%
@@ -429,7 +449,7 @@ button()
 		background-size 100% auto
 		background-size auto 100%
 		background-position center
-		@media screen and (max-width: 420px)
+		@media screen and (max-width: 1024px)
 			background-size auto 90%
 
 // PANEL //////////////////////////////////////////
@@ -448,9 +468,9 @@ button()
 	transition transform 0.55s eas-in-sine
 	-webkit-transform translateX(-60rem)
 	transform translateX(-60rem)
-	@media screen and (min-width: 640px)
+	@media screen and (min-width: 627px)
 		max-width 52rem
-	@media screen and (max-width: 640px)
+	@media screen and (max-width: 627px)
 		width calc(100% - 3rem)
 	@media screen and (max-width: 360px)
 		p
@@ -587,6 +607,7 @@ button()
 		-webkit-transform translate(0rem,0rem)
 		transform translate(0rem,0rem)
 		opacity 1
+		z-index 500
 		-webkit-transition all 0.5s ease-out-circ
 		transition all 0.5s ease-out-circ
 
@@ -608,7 +629,7 @@ button()
 	overflow hidden
 	position fixed
 	width 100%
-	z-index 500
+	z-index -100
 	a
 		position fixed
 		bottom 5.5rem
@@ -713,14 +734,21 @@ button()
 	position relative
 	max-width 52rem
 	@media all and (max-width: 768px)
-		border-top 0.3rem solid black
-		padding-top 2rem
 		max-width 100%
 		position static !important
+	hr
+		width 9.19167rem
+		border none
+		border-bottom 3px solid black
+		margin-bottom 2rem
+	@media all and (min-width: 640px)
+		hr
+			display none
 
 .project:first-of-type .fixie
 	@media all and (max-width: 768px)
-		border-top none
+		hr
+			display none
 
 .fixie-spacer
 	height 12rem
